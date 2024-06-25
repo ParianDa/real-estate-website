@@ -8,7 +8,7 @@ import Navbar from "./components/Navbar";
 import "./App.css";
 import Header from "./components/Header";
 
-const NAV_ELEMENTS = ["Home", "Listings", "Agents", "Contact"];
+
 const user = {
   name: "John Doe",
   profilePicture:
@@ -22,19 +22,19 @@ function App() {
 
   return (
     <Router>
-      <ul className="navbar">
-        {NAV_ELEMENTS.map((ele, index) => (
-          <Navbar key={index} val={ele} />
-        ))}
-      </ul>
-      <Header user={user} onLogout={handleLogout} />
+      <Navbar/>
+      
 
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/property/:id" element={<PropertyDetails />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard" element={<Header user={user} onLogout={handleLogout} />} />
+        {/* Add routes for recently searched, recently viewed, and contacted */}
+        {/* <Route path="/recently-searched" element={<RecentlySearched />} />
+        <Route path="/recently-viewed" element={<RecentlyViewed />} />
+        <Route path="/contacted" element={<Contacted />} /> */}
       </Routes>
     </Router>
   );

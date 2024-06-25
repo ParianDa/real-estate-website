@@ -1,81 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 *{
     margin: 0;
     padding: 0;
+    font-family: 'Roboto', sans-serif; /* Apply global font family */
+}
+/* Navbar and general styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #6a0c0c;
+    color: white;
 }
 
-.navbar {
-    list-style-type: none;
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-elements {
+    list-style: none;
+    display: flex;
+    gap: 20px;
     margin: 0;
     padding: 0;
-    overflow: hidden;
-    background-color: #333;
 }
 
-.navbar li {
-    float: left;
+.nav-elements > li {
+    position: relative;
+    cursor: pointer;
+    padding: 10px;
 }
 
-.navbar li a {
-    display: block;
+.nav-elements > li:hover {
+    background-color: #444;
+}
+
+.sub-nav-elements {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #444;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    display: none; /* Initially hidden */
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000;
+    width: max-content;
+}
+
+.nav-elements > li:hover .sub-nav-elements {
+    display: flex; /* Show dropdown on hover */
+}
+
+.dropdown-item {
+    white-space: nowrap;
+    cursor: pointer;
+    padding: 10px 20px;
+}
+
+.dropdown-item:hover {
+    background-color: #555;
+}
+
+/* Profile dropdown */
+.profile-button {
+    position: relative;
+}
+
+.profile-sub-nav-elements {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #444;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    display: none; /* Initially hidden */
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000;
+    width: max-content;
+}
+
+.profile-button:hover .profile-sub-nav-elements {
+    display: flex; /* Show dropdown on hover */
+}
+
+/* Link styling */
+.nav-link {
     color: white;
-    text-align: center;
-    padding: 14px 16px;
     text-decoration: none;
 }
 
-.navbar li a:hover {
-    background-color: #111;
+.nav-link:hover {
+    text-decoration: underline;
 }
 
-/* Reset some basic elements */
-body, h1, h2, h3, h4, h5, h6, p, ul, li, figure, figcaption {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* General user profile styles */
+.user-profile {
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }
 
-/* Styling the header */
-.header {
+.profile-button,
+.logout-button {
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+/* User profile styling */
+/* Header styles */
+.dashboard-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #f5f5f5;
-    border-bottom: 1px solid #ddd;
+    background-color: #2041ea;
+    color: white;
+    border-bottom: 200px solid #4fb4db;
 }
 
-.header h1 {
+.dashboard-title {
+    margin: 0;
     font-size: 24px;
-    font-weight: bold;
-    color: #333;
 }
 
-/* Styling the UserProfile component */
-.profile-picture {
+/* User profile styles */
+.user-profile-container {
+    display: flex;
+    align-items: center;
+}
+
+.user-profile-picture {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    object-fit: cover;
     margin-right: 10px;
 }
 
-.user-name {
-    font-size: 16px;
-    color: #333;
+.user-profile-name {
     margin-right: 20px;
+    font-weight: bold;
 }
 
-button {
-    padding: 8px 16px;
-    font-size: 14px;
-    color: #fff;
-    background-color: #007bff;
+.logout-button {
+    background-color: #ff4d4d;
+    color: white;
     border: none;
-    border-radius: 4px;
+    padding: 10px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: #0056b3;
+.logout-button:hover {
+    background-color: #ff1a1a;
 }
